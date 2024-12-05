@@ -42,8 +42,7 @@ SELECT
     ) AS total_ROAS_percentage
 FROM 
     marketing_data2;
-
----
+***
 
 ### 2. ROAS by Marketing Channel**
 ```sql
