@@ -28,7 +28,8 @@ The goal of this case study is to analyze marketing data to evaluate the perform
 ## 🛠️ How Each Question Was Answered
 
 
-###-- 1. Total Costs, Earnings, and Overall ROAS**
+### 1. Total Costs, Earnings, and Overall ROAS**
+```sql
 SELECT 
     ROUND(SUM(costs), 2) AS total_cost,
     ROUND(SUM(earnings), 2) AS total_earnings,
