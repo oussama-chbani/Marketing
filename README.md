@@ -46,6 +46,7 @@ FROM
 ---
 
 ### 2. ROAS by Marketing Channel**
+```sql
 SELECT 
     mkt_channel,
     SUM(earnings) AS total_earnings,
@@ -59,6 +60,7 @@ ORDER BY
     ROAS DESC;
 
 ### 3. ROAS by Traffic Source**
+```sql
 SELECT 
     traffic_source,
     SUM(earnings) AS total_earnings,
@@ -72,6 +74,7 @@ ORDER BY
     ROAS DESC;
 
 ### 4. ROAS by Marketing Channel and Traffic Source**
+```sql
 SELECT 
     mkt_channel,
     traffic_source,
@@ -87,6 +90,7 @@ ORDER BY
     ROAS DESC;
 
 ### 5. Monthly Performance Trends**
+```sql
 SELECT 
     DATE_TRUNC('month', partition_date) AS month,
     ROUND(SUM(costs), 2) AS total_costs,
@@ -100,6 +104,7 @@ ORDER BY
     month;
 
 ### 6. Weekly Performance Trends**
+```sql
 SELECT 
     DATE_TRUNC('week', partition_date) AS week_start,
     SUM(costs) AS total_costs,
@@ -113,15 +118,18 @@ ORDER BY
     week_start;
 
 ### 7. Anomalous Data: Future-Dated Records**
+```sql
 SELECT *
 FROM marketing_data2
 WHERE partition_date > CURRENT_DATE;
 
 ### 8. (Optional) Delete Future-Dated Records**
+```sql
 DELETE FROM marketing_data2
 WHERE partition_date > CURRENT_DATE;
 
 ### 9. Traffic Sources with Zero Costs**
+```sql
 SELECT 
     traffic_source,
     SUM(costs) AS total_costs,
@@ -137,6 +145,7 @@ ORDER BY
     traffic_source;
 
 ### 10. Monthly ROAS by Marketing Channel**
+```sql
 SELECT 
     DATE_TRUNC('month', partition_date) AS month,
     mkt_channel,
@@ -151,6 +160,7 @@ ORDER BY
     month, mkt_channel;
 
 ### 11. Monthly ROAS by Traffic Source**
+```sql
 SELECT 
     DATE_TRUNC('month', partition_date) AS month,
     traffic_source,
